@@ -1,0 +1,60 @@
+* { margin: 0; padding: 0;box-sizing:border-box;}
+body {font-size: 0.32rem;background: #efefef;height: 25rem;}
+header {height: 0.9rem;background:#fff;display: flex;justify-content: space-between;
+align-items: center;padding:0 0.3rem;}
+header > div {display:flex;justify-content:space-around;align-items: center;}
+.message img{width:85%;height: auto;}
+.search{margin-left:0.5rem;}
+
+.a22{width:100%;height: auto;}
+
+main {background:#fff;margin-top: 0.34rem;}
+.title{display:flex;align-items: center;margin:0.3rem 0.4rem;font-size: 0.28rem;
+padding-top: 0.2rem;font-weight: normal;}
+.shop_content > div {display: flex;padding:0 0.3rem 0.2rem 0.3rem;line-height: 0.45rem;
+border-bottom: 0.02rem solid #c7c7c7;}
+.checkbox-box{width:22px;height:22px;border:1px solid #fe8f98 ;border-radius:50%;
+position: relative;}
+.checkbox-box input{position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);
+opacity: 0;z-index: 2;}
+.checkbox-box span{background:url(images/shopcar/icon-v.png) no-repeat center;background-size: 80%;
+width: 20px;height: 20px;border-radius: 50%;position: absolute;left: 0;top: 0;
+transition: all 0.5s;}
+.checkbox-box input[type="checkbox"] + span {opacity: 0;}
+.checkbox-box input[type="checkbox"]:checked + span {opacity: 1;background-color:#fe8f98;}
+
+.shop_content > div input {flex: 6;font-size: 0.26rem;}
+.shop_content .shop_photo {flex:18;margin-left: 0.1rem;}
+.shop_photo img{width:80%;height:auto}
+.shop_content .shop_info {flex:50;}
+.shop_info h3 {font-size: 0.24rem;font-weight: normal;width: 100%;}
+.shop_info p{font-size:0.24rem;color: #7C7C7C;}
+.shop_info > div {display: flex;justify-content: space-between;}
+.count {display: flex;width: 1.1rem;height: 0.5rem;}
+.count button { width:30%;height:80%;text-align: center;}
+.count input { width: 33.3333%;height:80%;text-align: center;}
+.shop_price {width: 2rem;display: flex;align-items: center;}
+.shop_price em{font-style: normal;color:#bbb;font-size: 0.24rem;}
+
+section {height: 1.2rem;border-top: 0.02rem solid #c7c7c7;padding: 0.1rem 0.3rem;
+background: #fff;position: fixed;left: 0;bottom: 0;width: 100%;display: flex;
+align-items: center;margin-bottom:0.95rem;}
+.ft{display: flex;}
+.ft input {width: 0.5rem;padding-right:0.3rem;margin-top:0.05rem;}
+section > div {flex: 1;white-space: nowrap;}
+section > div p{font-size: 0.24rem;padding-left: 0.45rem;}
+section > div em{font-size: 0.28rem;font-style: normal;color:#fe8f98;}
+section > div span{font-size: 0.24rem;color:#525252;padding-top:0.05rem;padding-left: 0.1rem;}
+section > button {width: 2.3rem;border: none;background:#fe8f98;color: #fff;
+border-radius:2rem;height:70%;}
+
+footer {background:#fff;z-index: 3;border-top: 0.01rem solid #f6f6f6;
+position: fixed;left: 0;bottom: 0;display: flex;width: 100%;
+justify-content:space-around;align-items: center;}
+footer a{text-decoration: none;padding: 0.1rem 0;text-align: center;}
+footer a > p{color:#525252;text-align:center;font-size: 0.22rem;
+white-space: nowrap;}
+footer > a p:nth-child(1){}
+footer a img{width:80%;height: auto;}
+.a2{width:6%;height: auto;font-size: 0.22rem;}
+.a3{width: 6%;height: auto;font-size: 0.22rem;color:#fe8f98;}

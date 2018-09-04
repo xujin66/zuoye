@@ -1,0 +1,18 @@
+*{margin: 0;padding: 0;box-sizing:border-box;}
+body {font-size: 0.32rem;background: #efefef;}
+header{height: 0.9rem;background:#fff;display: flex;padding:0 0.3rem;}
+.search{flex:1;font-size:0.32rem;}
+header > div {display:flex;justify-content:space-around;align-items: center;}
+.sys img {width:70%;height: auto;}
+.message img{width:70%;height: auto;}
+main{background: #fff;margin-top: 0.1rem;padding: 0.2rem 0.3rem;line-height:1rem;
+height: 12rem;}
+main input{height:0.8rem;background:none;margin-left: 0.1rem;border: none;width: 6rem;}
+main button{width:5rem;height:0.8rem;background: #efefef;border: none;font-size: 0.24rem;
+border-radius: 2rem;margin-left:0.8rem;margin-top: 0.3rem;}
+main > div{display: flex;flex-wrap: wrap;align-items:flex-end;border-bottom:#d1d1d1 solid 0.01rem;}
+main > div:nth-child(3){border-bottom: none;padding-top: 0.1rem;margin:0 0.1rem;}
+.a1 span{position: relative;}
+.a1 span:after{content: "";,position: absolute;display:block;width: 0;height: 0.5rem;margin-right:0.3rem;
+border:transparent solid 0.13rem;border-top: #d1d1d1 solid 0.15rem;right: -0.3rem;top: 50%;}
+.a1{display: flex;justify-content:space-between;align-items: center;padding-bottom: 0.1rem;}

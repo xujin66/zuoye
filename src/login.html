@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="jiantou" onclick="history.back()"><img src="images/login/登录_03.png"/></div>
+			<div class="denglv">登录</div>
+			</div>
+			<div class="zhuce">
+				<a href="sign.html">注册</a>
+			</div>
+	        </header>
+	        <div id="box">
+	        <main>
+	        	<div class="nav">
+	        		<p></p>
+	        		<input type="text" placeholder="请输入您的账户" v-model="obj.phone"/>
+	        	</div>
+	        	<div class="nav1">
+	        		<p></p>
+	        		<input type="password" placeholder="请输入您的密码" v-model="obj.pwd"/>
+	        	</div>
+	        </main>
+	           <p>忘记密码？</p>
+	           <button @click="submit()">登录</button>
+	        <div class="denglv2">
+	        	 <div></div> <p class="biao">其它登录方式</p><div></div>
+	        </div>
+	      
+	        <footer> 
+	           <div class="btn">
+	           	<div><img src="images/login/登录_15.png"></div>
+	           	<p>微博</p>
+	           </div>
+	            <div class="btn">
+	           	<div><img src="images/login/登录_17.png"/></div>
+	           	<p>QQ</p>
+	           </div>
+	            <div class="btn">
+	           	<div><img src="images/login/登录_19.png"/></div>
+	           	<p>微信</p>
+	           </div>
+	        </footer>
+	       </div> 
+	        <script src="js/public.js"></script>
+	        <script src="vue/dist/vue.js"></script>
+	        <script src="axios/dist/axios.js"></script>
+	        <script>
+	        	var p=new Vue({
+	        		el:"#box",
+	        		data:{
+	        			obj:{
+	        				phone:"",
+	        				pwd:""
+	        			}
+	        		},
+	        		methods:{
+	        			submit(){
+	        				axios.post("/login",this.obj).then((res)=>{
+	        					console.log(res)
+	        					if(res.data==true){
+	        						sessionStorage.setItem("phone",this.obj.phone)
+	        						location=localStorage.getItem("loginJump")
+	        					}else{
+	        						alert(res.data)
+	        					}
+	        				})
+	        			}
+	        		}
+	        	})
+	        </script>
+	</body>
+</html>

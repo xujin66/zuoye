@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/list.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="message"><img src="images/list/购物车_03.png" onclick="history.back()"/></div>
+			<div class="search">裙装</div>
+			<div class="sys"><img src="images/list/login3.png"/></div>
+		</header>
+		<div class="btns">
+			<a href="#" class="active">推荐</a>
+			<a href="#">销量</a>
+			<a href="#" class="icon">新品</a>
+			<a href="#">价格</a>
+		</div>
+		
+		<div id="main">
+			<div v-if="isShow">
+				<img src="images/list/112.png" class="a33"/>
+			</div>
+
+		<main v-else>
+			<div v-for="item in ary">
+				<div>
+					<a v-bind="{href:'detail.html?keyword='+item.id}">
+						<img :src="item.img"/>
+					</a>
+				</div>
+				<p>{{item.title}}</p>
+				<em>￥{{item.price}}<span>立即购买</span></em>		
+		   </div>
+		  </main>
+       </div>
+		
+		
+		<script src="js/public.js"></script>
+		<script src="vue/dist/vue.js"></script>
+		<script src="axios/dist/axios.js"></script>
+		<script>
+			var p=new Vue({
+				el:"#main",
+				data:{
+					isShow:true,
+					ary:[]
+				},
+				created(){
+					 var codeStr=decodeURI(location.search.split("=")[1])
+					 if(codeStr!="undefind"){
+					 	console.log(codeStr) 
+					 	axios.get("/list/"+codeStr).then((res)=>{
+					 		console.log(res)
+					 		if(!res.data.length==0){
+					 			this.ary=res.data;
+					 			this.isShow=false
+					 		}
+					 	})
+					 }
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+[
+	{"id":1,
+	"img":"images/categroy/011.png",
+	"title":"裙装"	
+    },
+    {"id":2,
+	"img":"images/categroy/022.png",
+	"title":"女帽"	
+    },
+    {"id":3,
+	"img":"images/categroy/033.png",
+	"title":"女裤"	
+    },
+    {"id":4,
+	"img":"images/categroy/044.png",
+	"title":"女装"	
+    },
+    {"id":5,
+	"img":"images/categroy/055.png",
+	"title":"裤装"	
+    },
+    {"id":6,
+	"img":"images/categroy/088.png",
+	"title":"包包"	
+    }
+]

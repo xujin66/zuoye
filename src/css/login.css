@@ -1,0 +1,35 @@
+*{margin: 0;padding: 0;}
+body{font-size:0.32rem ;}
+header{display: flex;height:0.9rem;background:#fe8f98;padding:0.2rem 0.3rem;}
+header > div{display: flex; justify-content: center; align-items:center;}
+.denglv{flex: 1;text-align:center; color:#fff;font-size: 0.36rem;}
+.jiantou img{width:0.24rem;height:0.32rem;}
+.zhuce{color: #fff;}
+.zhuce a{text-decoration: none;color: #fff;font-size:0.36rem;padding-right: 0.2rem;}
+
+main{display: flex;flex-wrap: wrap; border-top: 0.01rem solid #ddd;}
+main > div{width: 100%;height: auto;padding-left:0.8rem;}
+.nav{padding:0.2rem 0.3rem;position: relative;display: flex;}
+.nav img{padding-right:0.2rem;}
+.nav p{background:url(../images/login/登录_07.png) no-repeat left center;width: 0.3rem;height: 0.3rem;
+position:absolute;top: 0.5rem;left: 0.6rem; background-size: 0.3rem;padding-top: 0.15rem;}
+.nav input{box-sizing: border-box;padding-left: 0.7rem;flex:1;width:6.6rem;height:1rem;color:#525252;background:#fff; font-size: 0.24rem;
+border:0.01rem solid #efefef;border-radius:1rem;font-weight:normal;}
+ 
+.nav1{padding:0.2rem 0.3rem;position: relative;display: flex;}
+.nav1 img{padding-right:0.2rem;}
+.nav1 p{width: 0.3rem;height: 0.3rem;background:url(../images/login/登录_11.png) no-repeat left center;
+position:absolute;top: 0.5rem;left: 0.6rem; background-size: 0.3rem;padding-top: 0.15rem;}
+.nav1 input{padding-left: 0.7rem;box-sizing: border-box;flex: 1;width:6.6rem;height:1rem;color:#525252;background:#fff;
+font-weight:normal;border:0.01rem solid #efefef;border-radius:1rem;font-size: 0.24rem;}
+button{width:6.8rem;height: 0.98rem;background:#fe8f98;border-radius:1rem;margin-top: 0.4rem;
+text-align: center;margin-left:0.4rem;font-size:0.34rem;color: #fff;border-style: none;}
+.denglv2{display: flex;justify-content:center;align-items: center;}
+.denglv2 > div{width:2rem;height:0.02rem;background:#efefef;margin-top:2.8rem;}
+p{display: flex;justify-content:flex-end;padding-right: 0.3rem;font-size:0.24rem;color:#c5c5c5}
+.biao{padding-top:3rem;color: #061a25;font-size: 0.3rem;text-align: center;
+padding-bottom: 0.2rem;padding-left: 0.3rem;}
+footer{display: flex;justify-content: space-around;align-items: center;padding-top:0.8rem;}
+footer > div > div{display: flex;justify-content: center;align-items: center;height:0.8rem;}
+footer > div img{width:0.96rem;height:0.96rem;padding-right:0.05rem;}
+footer p{font-size: 0.26rem;padding-top: 0.2rem;}

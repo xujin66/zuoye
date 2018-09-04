@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/address.css"/>
+	</head>
+	<body>
+		<div id="box">
+			<header>
+				<div class="message"><img src="images/list/购物车_03.png" onclick="history.back()"/></div>
+				<div class="search">添加收货地址</div>
+			</header>
+		  
+		  <main>
+		  	<div>收货人:<input type="text" placeholder="静静" v-model="obj.name"/></div>
+		  	<div>联系方式:<input type="text" placeholder="18888888888" v-model="obj.tel"/></div>
+		  	<!--<div>所在地区<input type="text" placeholder="河南省" v-model="obj.address"/></div>-->
+		  	<div>详细地址:<input type="text" placeholder="信阳职业技术学院" v-model="obj.detail"/></div>
+		  	<button @click="save()">保存</button>
+		  </main>
+		</div>
+		<script src="js/public.js"></script>
+		 <script src="vue/dist/vue.js"></script>	
+    	<script src="axios/dist/axios.js"></script>
+    	<script>
+    		var p=new Vue({
+    			el:"#box",
+    			data:{
+    				obj:{
+    					name:"",
+    					tel:"",
+    					detail:"",
+    					user:sessionStorage.getItem("phone")
+    				}
+    			},
+    			methods:{
+    				save(){
+    					axios.post("/add",this.obj).then((res)=>{
+    						console.log(res)
+    						if(res.data){
+    							alert("添加地址成功！")
+    							location="address2.html"  //有this的用箭头函数
+    						}
+    					})
+    				}
+    			}
+    		})
+    	</script>
+	</body>
+</html>

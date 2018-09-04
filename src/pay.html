@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/pay.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="message" onclick="history.back()"><img src="images/shopcar/购物车_03.png"/></div>
+			<div class="search">确认订单</div>
+			<div class="sys">管理</div>
+		</header>
+			<div id="box">
+		<main>
+			<div class="address3">
+				<div class="address1">
+				<p>收货人:&nbsp;{{address.name}}</p>
+				<span>{{address.tel}}</span>
+			</div>
+			<div class="address">
+				<div class="address4"><img src="images/pay/Location@2x.png"/></div>
+				<div class="address-left">
+					<p>{{address.detail}}</p>
+				</div>
+				<div class="address-right"><a href="address2.html"><img src="images/pay/8@2x.png"/></a></div>
+			</div>
+			</div>
+			
+			
+			<div class="time">
+				预计到达时间：2018年6月28日   后天
+			</div>
+			
+			<div class="body_bg" v-for="item in ary">
+				<div>
+					<div class="tu">
+					   <img :src="item.img"/>
+				    </div>
+				  <div class="content">
+					<div class="content_left">
+						<h3>{{item.title}}</h3>
+						<p>蓝色 , s码</p>
+						<span>￥{{item.price}}.00</span>
+					</div>
+					<div class="content_right">
+						x 1
+					</div>
+				</div>
+			 </div>
+		</div>
+		</main>
+		
+		<section>
+			  <div class="active_1">
+				 <p>付款方式</p>
+				 <span>在线支付</span>
+				 <img src="images/detail/right_jt.png"/>
+			  </div>
+			  
+			  <div class="active_3 active_1">
+				 <p>可用积分</p>
+				 <span>100分抵10元</span>
+			     <img src="images/detail/right_jt.png"/>
+			  </div>
+			  
+			  <div class="active_2 active_1">
+				 <p>使用优惠券</p>
+				 <span>暂无优惠劵可用</span>
+			     <img src="images/detail/right_jt.png"/>
+			  </div>
+			  
+			  <div class="active_4 active_1">
+				 <p>卖家留言</p>
+				 <input type="text" placeholder="选填" />
+			     <img src="images/detail/right_jt.png"/>
+			  </div> 
+			  
+			  <div class="price">
+			  	共{{num}}件商品 &nbsp;&nbsp;&nbsp;合计:￥{{price}}.00
+			  </div>
+		</section>
+		
+		<footer>
+			<div>实时付款：￥{{price}}</div>
+		    <button @click="jumpUser">提交订单</button>
+		</footer>
+		</div>
+		<script src="js/public.js"></script>
+		<script src="vue/dist/vue.js"></script>
+		<script src="axios/dist/axios.js"></script>
+	<script>
+		var str = location.search.slice(1).split("=")[1];
+		var p=new Vue({
+			el:"#box",
+			data:{
+				ary: [],
+				price: 0,
+				num: 0,
+				address:JSON.parse(localStorage.getItem("address"))
+			},
+			created(){
+				if(JSON.parse(localStorage.getItem("shopCar"))&& !(str=="one")){
+					console.log(1)
+					this.ary = JSON.parse(localStorage.getItem("shopCar"));
+					this.num = this.ary.length;
+					for(var i = 0;i<this.num;i++){
+						this.price += this.ary[i].num*this.ary[i].price;
+					}
+				}else{
+					console.log(2)
+					this.ary = JSON.parse(localStorage.getItem("goods"));
+					this.price = this.ary[0].price;
+					this.num = this.ary.length;
+			  };
+			  console.log(this.ary[0])
+			},
+			methods:{
+				jumpUser(){
+					location="user.html";
+				}
+			}
+		})
+	</script>
+	</body>
+</html>

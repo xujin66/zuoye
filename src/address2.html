@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/address2.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="message"><img src="images/list/购物车_03.png" onclick="history.back()"/></div>
+			<div class="search">收货地址</div>
+			<div class="sys">管理</div>
+		</header>
+		
+	<div id="box">
+			<div class="btns">
+			<a href="address.html"><button>添加地址</button></a>
+		</div>
+			<div class="add1" v-for="item in ary">
+		<div class="add" @click="selectAdd(item)">
+				   <div>
+					<p>{{item.name}}</p>
+					<span>{{item.tel}}</span>
+					</div>
+					<div>
+						<p>{{item.detail}}</p>
+					</div>
+          </div>      
+				<div class="ad">
+					<div class="wrapper">
+					        <div class="checkbox-box">
+					            <input name="1" type="checkbox" v-model="item.selected" />
+					            <span></span>
+					        </div>
+	                    </div>
+	                    <p>设为默认</p>
+                    </div>
+		</div>
+		
+	
+		
+	</div>	
+		
+		<script src="js/public.js"></script>
+	    <script src="vue/dist/vue.js"></script>	
+    	<script src="axios/dist/axios.js"></script>
+    	<script type="text/javascript">
+    		var app = new Vue({
+    			el:"#box",
+    			data:{
+    				ary:[]
+    			},
+    			created(){
+    				var user = sessionStorage.getItem("phone");
+    				axios.get("/getAddress/"+user).then((res)=>{
+    					console.log(res)
+    					this.ary = res.data
+    				})
+    			},
+    			methods:{
+    				selectAdd(item){
+    					localStorage.setItem("address",JSON.stringify(item));
+    					location = "pay.html";
+    				}
+    				
+    			}
+    		})
+    	</script>
+	</body>
+</html>

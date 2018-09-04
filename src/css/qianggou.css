@@ -1,0 +1,32 @@
+* { margin: 0; padding: 0;box-sizing:border-box;}
+body {font-size: 0.32rem;background: #efefef;}
+header{height: 0.9rem;background:#fff;display: flex;}
+.search{flex:1;font-size:0.3rem;}
+header > div {display:flex;justify-content:space-around;align-items: center;}
+header img {width: 40%;height: auto;}
+
+.btns{display: flex;justify-content: space-around;align-items: center;
+padding:0.2rem 0.3rem;background:#fff;margin-top:0.1rem;border-bottom:0.02rem solid #ddd;}
+.btns a{text-decoration:none;color:#525252;}
+.icon{position: relative;}
+.icon:after{content:"";position: absolute;display: block;width:0;height:0;
+border:0.1rem solid transparent;border-top:0.1rem solid #525252;
+right:-0.3rem;top:50%}
+
+main{display: flex;flex-wrap: wrap;justify-content:space-between;padding:0.3rem;
+background:#fff;margin:0.1rem 0.2rem 0.8rem 0.2rem;border-radius:0.1rem;font-size:0.2rem;}
+main > div{width:50%;padding-bottom:0.3rem;}
+main > div > div{display:flex;justify-content:center;align-items: center;
+height:3.3rem;}
+main > div > div img{width:80%;height: auto;}
+main > div p{display:flex;flex-wrap:wrap;font-size:0.22rem;padding:0.2rem 0.3rem 0 0.3rem;}
+main > div em{font-style: normal;font-size:0.2rem;padding:0.2rem 0.3rem 0 0.3rem;}
+main > div span{color:#fff;background:#fe8f98;border-radius:0.4rem;
+font-size:0.1rem;margin-left:0.7rem;}
+footer {background:#fff;z-index: 3;border-top: 0.01rem solid #dadada;
+position: fixed;left: 0;bottom: 0;display: flex;width: 100%;
+justify-content:space-around;align-items: center;}
+footer a{text-decoration: none;padding: 0.1rem 0;text-align: center;}
+footer a > p{color:#525252;text-align:center;font-size: 0.2rem;
+white-space: nowrap;}
+footer a img{width:40%;height: auto;}

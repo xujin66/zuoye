@@ -1,0 +1,66 @@
+[
+  {
+	"id":101,
+	"category":"裙装",
+	"img":"images/list/list 1.png",
+	"title":"古风带着少女气息的连衣裙",
+	"price":489
+	},
+	{
+	"id":102,
+	"category":"裙装",
+	"img":"images/list/list 2.png",
+	"title":"小清新雪纺衫牛仔裙两件套",
+	"price":389
+	},
+	{
+	"id":103,
+	"category":"裙装",
+	"img":"images/list/list 3.png",
+	"title":"半身长裙不规则雪纺高腰鱼尾裙",
+	"price":222
+	},
+	{
+	"id":201,
+	"category":"女裤",
+	"img":"images/list/list 4.png",
+	"title":"网红短袖T恤+背带短裤套装",
+	"price":359
+	},
+	{
+	"id":202,
+	"category":"女裤",
+	"img":"images/list/list 5.png",
+	"title":"高腰不规则chic小清新牛仔裙",
+	"price":129
+	},
+	{
+	"id":203,
+	"category":"女裤",
+	"img":"images/list/list 6.png",
+	"title":"洋气时尚背带短裤两件套套装",
+	"price":632
+	},
+	{
+	"id":301,
+	"category":"女帽",
+	"img":"images/list/list 7.jpg",
+	"title":"网红短袖T恤+背带短裤套装",
+	"price":359
+	},
+	{
+	"id":302,
+	"category":"女帽",
+	"img":"images/list/list 6.png",
+	"title":"高腰不规则chic小清新牛仔裙",
+	"price":129
+	},
+	{
+	"id":303,
+	"category":"女帽",
+	"img":"images/list/list 9.jpg",
+	"title":"洋气时尚背带短裤两件套套装",
+	"price":632
+	}
+
+]

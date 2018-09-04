@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/sign.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="jiantou" onclick="history.back()"><img src="images/login/登录_03.png"/></div>
+			<div class="denglv">注册</div>
+			</div>
+			<div class="zhuce">
+				<a href="login.html">登录</a></div>
+	        </header>
+	        <div id="box">
+	        <main>
+	        	<div class="nav">
+	        		<p></p>
+	        		<input type="text" placeholder="请输入您的账户" v-model="obj.phone" @blur="vaildata"/>
+	        	 <span v-if="isShow">
+				<font class="f1" v-if="use"></font>
+			    <font class="f2" v-else></font>
+			</span>
+	        	</div>
+	        	<div class="nav1">
+	        		<p></p>
+	        		<input type="password" placeholder="请输入您的密码" v-model="obj.pwd"/>
+	        	</div>
+	        	<div class="nav1">
+	        		<p></p>
+	        		<input type="password" placeholder="请确认您的密码" v-model="surePwd"/>
+	        	</div>
+	        	<div class="nav2">
+	        			
+	        		<input type="text" class="ipt"/>
+	        		<button v-on:click="yzm()"><div id="yzm1">334g</div></button>
+	        	</div>
+	        	<div class="zhu">
+				<div class="checkbox-box">
+	            <input name="1" type="checkbox" checked/>
+	            <span></span>
+	        </div>
+				点击注册，代表同意并接受《使用协议》
+			</div>
+	        </main>
+	        <div class="btn">
+				<input type="submit" value="注册" @click="submit()"/>
+			</div> 
+	      
+	      </div>
+		<script src="js/public.js"></script>
+		<script src="vue/dist/vue.js"></script>
+		<script src="axios/dist/axios.js"></script>
+		<script>
+			var p=new Vue({
+				el:"#box",
+				data:{
+					obj:{
+						phone:"",
+						pwd:""
+					  },
+					    isShow:false,
+						use:true,
+						surePwd:""
+				},
+				created: function(){
+					this.yzm()
+					
+				},
+				methods:{
+					submit(){
+						if(!this.use){
+							alert("电话错误了");
+							return;
+						}
+						if(this.obj.pwd != this.surePwd){
+							alert("两次密码不一样");
+							return;
+						}
+
+					  axios.post("/sign",this.obj).then(function(res){
+						console.log(res)
+						if(res.data){
+							location="login.html"
+						}
+					})
+				   },
+				   vaildata(){
+				   	axios.post("/vaildata",{phone:this.obj.phone}).then((res)=>{
+				   	console.log(res);
+				   	this.isShow=true;
+				   	this.use=res.data;
+				   	})
+				   },
+				   yzm: function(){
+				       var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+				       var btn = document.querySelector("#yzm1");
+				       var ipt = document.querySelector(".ipt");
+				       var yzmStr = str[this.rand(0,62)]+str[this.rand(0,62)]+str[this.rand(0,62)]+str[this.rand(0,62)];
+				       ipt.value = btn.innerHTML = yzmStr;
+				   },
+				   rand: function(min,max){
+				       return Math.floor(Math.random()*(max-min)+min);
+				   }
+				   
+				 }
+				})
+		</script>
+	</body>
+</html>

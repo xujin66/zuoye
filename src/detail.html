@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/detail.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="message" onclick="history.back()"><img src="images/detail/left_jt.png"/></div>
+			<div class="search">商品详情</div>
+			<div class="sys">
+				<a href="shopcar.html"><img src="images/detail/8@2x.png"/></a>
+			</div>
+		</header>
+		
+	    <div class="btns">
+			<a href="#" class="active">基本信息</a>
+			<a href="#">评价</a>
+			<a href="#" class="icon">商品参数</a>
+		</div>
+		
+		<div id="box">
+		<main>
+			<div class="banner"><img :src="obj.img"/></div>
+			<div class="active1">
+				<div class="left">
+					<h2>{{obj.title}}</h2>
+					<em>￥{{obj.price}}.00</em><b>原价：￥{{obj.pay}}.00</b>
+					<div><span>正品保证</span><span>7天退货</span><span>闪电发货</span></div>
+				</div>
+				<div class="right">
+					<div>
+						<button @click="jian()">-</button>
+						<input type="number" value="1" min="1" v-model="num"/>
+						<button @click="jia()">+</button>
+					</div>
+					<p>库存:{{obj.count}}件</p>
+				</div>
+			</div>
+			<div class="active2">
+			  <div class="active_1">
+				 <p>领取优惠劵</p>
+			     <img src="images/detail/right_jt.png"/>
+			  </div>
+			  <div class="active_2 active_1">
+				 <p>满200元即可享受包邮</p>
+			     <img src="images/detail/right_jt.png"/>
+			  </div>
+			  <div class="active_2 active_1">
+				 <p>你有50元的优惠券待领取</p>
+			     <img src="images/detail/right_jt.png"/>
+			  </div>
+			</div>  
+		</main>
+		<div class="msg">
+			<h2>{{obj.msg}}</h2>
+			<div class="msg_content">
+				<div v-for="item in obj.info">
+					<div class="msg_user">
+						<img src="images/detail/02.png"/>
+						<div>{{item.name}}</div>
+					</div>
+					<p>{{item.msg}}</p>
+					<div class="msg_user1 msg_user">
+						<img src="images/detail/01.png"/>
+						<div>{{item.name}}</div>
+					</div>
+					<div class="msg_user2">
+						<p>{{item.msg}}</p>
+				        <img :src="item.img1"/>
+					</div>
+
+                  </div>
+				</div>
+			</div>
+				
+		<footer>
+			<div class="collect">客服</div>
+			<div class="collect1 collect">收藏</div>
+			<div class="btn">
+				<button @click="APP()">加入购物车</button>
+				<button @click="app1()">立即购买</button>
+			</div>
+		</footer>
+		</div>
+		
+		<script src="js/public.js"></script>
+		<script src="vue/dist/vue.js"></script>
+		<script src="axios/dist/axios.js"></script>
+		<script>
+			var p=new Vue({
+				el:"#box",
+				data:{
+					obj:{},
+					num:1
+				},
+				created(){
+					var id=location.search.split("=")[1];
+					console.log(id)
+						axios.get("/detail/"+id).then((res)=>{
+							console.log(res.data)
+								this.obj=res.data;
+						})
+				},
+				methods:{
+					jia(){
+						if(this.num<this.obj.count){
+						  this.num++
+						}
+		
+					},
+					jian(){
+						if(this.num>1){
+						this.num--	
+						}
+						
+					},
+					APP(){
+						var data={
+							id:this.obj.id,
+							title:this.obj.title,
+							img:this.obj.img,
+							price:this.obj.price,
+							category:this.obj.category,
+							count:this.obj.count,
+							num:this.num,
+							selected:true
+						}
+						if(localStorage.getItem("shopCar")){
+							var res=JSON.parse(localStorage.getItem("shopCar"));
+							var bool=true;
+							for(var i=0;i<res.length;i++){
+								if(res[i].id==data.id){
+									res[i].num+=data.num;
+									bool=false;
+								}
+							};
+							if(bool){
+								res.push(data);
+							}
+							localStorage.setItem("shopCar",JSON.stringify(res))
+						}else{
+							console.log(6)
+							var ary=[data]
+							localStorage.setItem("shopCar",JSON.stringify(ary))
+						}
+			        alert("加入购物车成功")
+					},
+					app1(){
+						var arr = [this.obj]
+				 	localStorage.setItem("goods",JSON.stringify(arr));
+				 	sessionStorage.setItem("total",this.abc)
+				 	localStorage.setItem("loginJump","pay.html")
+				 	if(sessionStorage.getItem("phone")){
+				 		location = "pay.html?keyword=one"
+				 	}else{
+                        location="login.html"
+                       }
+			
+				  }
+					
+					}
+					
+			})
+		</script>
+	</body>
+</html>
